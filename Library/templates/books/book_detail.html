@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div>
+        <p>{{book}}</p>
+        <p>{{book.author.full_name}}</p>
+        <p>{{book.publication_year}}</p>
+        <p>{{book.description}}</p>
+        <img src="{{ book.cover.url }}" alt="Book Cover">
+    </div>
+{% endblock %}
