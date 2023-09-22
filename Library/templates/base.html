@@ -8,7 +8,16 @@
 <header>
     <a href="{% url 'register' %}">Register</a>
     <a href="{% url 'login' %}">Login</a>
+    <a href="{% url 'logout' %}">Logout</a>
     <a href="{% url 'books' %}">Books</a>
+   <form method="get">
+       <select name="search_by" id="query">
+            <option value="title">Title</option>
+            <option value="author">Author</option>
+        </select>
+        <input type="text" name="query" value="{{ query }}" placeholder="Search by title or author">
+        <button type="submit">Search</button>
+    </form>
 </header>
 {% block content %}
 {% endblock content %}

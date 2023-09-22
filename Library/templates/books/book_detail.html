@@ -6,5 +6,10 @@
         <p>{{book.publication_year}}</p>
         <p>{{book.description}}</p>
         <img src="{{ book.cover.url }}" alt="Book Cover">
+        {% if user.is_authenticated %}
+            <a href="{% url 'book_update' pk=book.pk %}">Update book</a>
+            <a href="{% url 'book_delete' pk=book.pk %}">Delete book</a>
+            <a href="">Left comment</a>
+        {% endif %}
     </div>
 {% endblock %}

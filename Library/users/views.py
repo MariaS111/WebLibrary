@@ -1,7 +1,12 @@
+from django.contrib.auth.views import LogoutView
 from django.shortcuts import render, redirect
 from django.contrib.auth.forms import AuthenticationForm
 from .forms import UserRegisterForm
 from django.contrib.auth import login
+
+
+class CustomLogoutView(LogoutView):
+    template_name = 'users/logout.html'
 
 
 def login_view(request):
