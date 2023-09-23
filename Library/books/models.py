@@ -25,7 +25,8 @@ class Book(models.Model):
 
 class Comment(models.Model):
     book = models.ForeignKey(Book, on_delete=models.DO_NOTHING)
-    content = models.CharField(max_length=600)
+    user = models.ForeignKey('users.CustomUser', on_delete=models.DO_NOTHING)
+    content = models.TextField()
     date_of_publication = models.DateField(auto_now_add=True)
 
     class Meta:
@@ -34,6 +35,6 @@ class Comment(models.Model):
         ordering = ['date_of_publication']
 
     def __str__(self):
-        return str(self.book.title) + self.pk
+        return self.book.title + str(self.pk)
 
 

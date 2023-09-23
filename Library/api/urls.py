@@ -1,0 +1,7 @@
+from django.urls import path
+from .views import BookAPIView
+
+urlpatterns = [
+    path('books/', BookAPIView.as_view(), name='books_api'),
+    path('books/<int:pk>/', BookAPIView.as_view(), name='book_api'),
+]

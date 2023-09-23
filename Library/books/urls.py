@@ -1,5 +1,5 @@
 from django.urls import path, include
-from .views import BookView, BookDetailView, BookCreateView, BookDeleteView, BookUpdateView
+from .views import BookView, BookDetailView, BookCreateView, BookDeleteView, BookUpdateView, CommentCreateView
 from django.conf import settings
 from django.conf.urls.static import static
 
@@ -9,6 +9,7 @@ urlpatterns = [
     path('<int:pk>/', BookDetailView.as_view(), name='book'),
     path('<int:pk>/delete/', BookDeleteView.as_view(), name='book_delete'),
     path('<int:pk>/update/', BookUpdateView.as_view(), name='book_update'),
+    path('<int:pk>/add_comment/', CommentCreateView.as_view(), name='book_add_comment'),
 ]
 
 if settings.DEBUG:

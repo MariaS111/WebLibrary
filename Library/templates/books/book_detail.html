@@ -9,7 +9,14 @@
         {% if user.is_authenticated %}
             <a href="{% url 'book_update' pk=book.pk %}">Update book</a>
             <a href="{% url 'book_delete' pk=book.pk %}">Delete book</a>
-            <a href="">Left comment</a>
+            <a href="{% url 'book_add_comment' pk=book.pk %}">Left comment</a>
         {% endif %}
+
+          <h3>Comments:</h3>
+          <ul>
+            {% for comment in book.comment_set.all %}
+              <li>{{ comment.content }} --- {{comment.user.username}}</li>
+            {% endfor %}
+          </ul>
     </div>
 {% endblock %}
