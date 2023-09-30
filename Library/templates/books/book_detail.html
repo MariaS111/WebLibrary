@@ -4,19 +4,24 @@
         <h3>{{book}}</h3>
         <h4>{{book.author.full_name}}</h4>
         <h4>{{book.publication_year}}</h4>
-        <p>{{book.description}}</p>
+        <p class="book-description">{{book.description}}</p>
         <img src="{{ book.cover.url }}" alt="Book Cover">
+    </div>
         {% if user.is_authenticated %}
-            <a href="{% url 'book_update' pk=book.pk %}">Update book</a>
-            <a href="{% url 'book_delete' pk=book.pk %}">Delete book</a>
-            <a href="{% url 'book_add_comment' pk=book.pk %}">Left comment</a>
+        <div class="abs-det">
+            <a class="button" href="{% url 'book_update' pk=book.pk %}">Update book</a>
+            <a class="button" href="{% url 'book_delete' pk=book.pk %}">Delete book</a>
+            <a class="button" href="{% url 'book_add_comment' pk=book.pk %}">Left comment</a>
+            <a class="button" href="{% url 'books' %}">Back</a>
+        </div>
         {% endif %}
 
           <h4>Comments:</h4>
-          <ul>
             {% for comment in book.comment_set.all %}
-              <li>{{ comment.content }} --- {{comment.user.username}}</li>
+              <div class="comment">
+                  <p>From user: {{comment.user.username}}</p>
+                  <p>{{ comment.content }}</p>
+              </div>
             {% endfor %}
-          </ul>
-    </div>
+
 {% endblock %}

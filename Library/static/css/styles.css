@@ -27,11 +27,13 @@ nav a{
 
 header form {
     padding-right: 30px;
+    gap: 20px;
 }
 
 .book-card {
     text-decoration: none;
     border: 1px solid #24282C;
+    border-radius: 10px;
     padding: 15px 20px;
     text-align: center;
     display: flex;
@@ -59,7 +61,7 @@ header form {
 
 .book-container {
      display: grid;
-     padding: 40px 0;
+     padding: 40px 0 20px 0;
      grid-template-columns: repeat(2, 1fr);
      grid-template-rows: repeat(2, 1fr);
      gap: 4rem;
@@ -73,5 +75,61 @@ header form {
     width: 80%;
 }
 
+.book-description {
+    width: 70%;
+    word-wrap: break-word;
+    text-align: center;
+}
 
 
+.comment {
+    width: 80%;
+    height: auto;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    padding: 10px 20px;
+    margin-bottom: 20px;
+}
+
+.comment p {
+     word-wrap: break-word;
+}
+
+
+.button {
+      background-color: #6fa4e9;
+      color: #fff;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 15px;
+      text-align: center;
+}
+
+.button:hover {
+      background-color: navy;
+      color: white;
+}
+
+button {
+      font-size: 15px;
+      font-family: "Times New Roman";
+      text-decoration: underline;
+}
+
+.abs-det {
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+    position: absolute;
+    bottom: 50%;
+    right: 30px;
+}
+
+.abs-lst {
+    position: absolute;
+    bottom: 10%;
+    right: 30px;
+}

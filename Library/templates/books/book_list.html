@@ -6,7 +6,7 @@
             <div class="book-info">
                 <h3>{{i}}</h3>
                 <h4>{{i.author.full_name}}</h4>
-                <p>{{ i.description | slice:":30" }}...</p>
+                <p>{{ i.description | slice:":25" }}...</p>
             </div>
             <img src="{{ i.cover.url }}" alt="Book Cover">
         </a>
@@ -31,8 +31,9 @@
         </span>
     </div>
 
+    <div class="abs-lst">
     {% if user.is_authenticated %}
-            <a href="{% url 'book_create' %}">Create new book</a>
+            <a class="button" href="{% url 'book_create' %}">Create new book</a>
     {% endif %}
-
+    </div>
 {% endblock %}
