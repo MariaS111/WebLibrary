@@ -5,7 +5,7 @@ from django.urls import reverse
 
 class Book(models.Model):
     title = models.CharField(max_length=100)
-    author = models.ForeignKey('authors.Author', on_delete=models.DO_NOTHING)
+    author = models.ForeignKey('authors.Author', on_delete=models.RESTRICT)
     publication_year = models.IntegerField(
         validators=[MinValueValidator(limit_value=1)])
     description = models.TextField(max_length=500)
@@ -52,8 +52,8 @@ class BookRating(models.Model):
 
 
 class Comment(models.Model):
-    book = models.ForeignKey(Book, on_delete=models.DO_NOTHING)
-    user = models.ForeignKey('users.CustomUser', on_delete=models.DO_NOTHING)
+    book = models.ForeignKey(Book, on_delete=models.CASCADE)
+    user = models.ForeignKey('users.CustomUser', on_delete=models.CASCADE)
     content = models.TextField(max_length=200)
     date_of_publication = models.DateField(auto_now_add=True)
 

@@ -32,12 +32,13 @@ header form {
 
 .book-card {
     text-decoration: none;
-    border: 1px solid #24282C;
+    border: 1px solid #f1f1f1;
     border-radius: 10px;
     padding: 15px 20px;
     text-align: center;
     display: flex;
     justify-content: space-between;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }
 
 .book-card h5,
@@ -72,13 +73,29 @@ header form {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 80%;
+    width: 50%;
+}
+
+.book-im {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
 }
 
 .book-description {
-    width: 70%;
+    width: 60%;
     word-wrap: break-word;
     text-align: center;
+}
+
+.book-detail-info {
+    display: flex;
+    margin: 40px 0;
+    column-gap: 70px;
+    align-items: center;
+    justify-content: center;
 }
 
 

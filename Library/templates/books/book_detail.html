@@ -1,13 +1,17 @@
 {% extends 'base.html' %}
 {% block content %}
+<div class="book-detail-info">
+    <div class="book-im">
+        <img src="{{ book.cover.url }}" alt="Book Cover">
+        <h4>average rating is <b>{{book.average_rating|floatformat:"2" }}</b></h4>
+    </div>
     <div class="book-content">
         <h3>{{book}}</h3>
-        <h4>{{book.author.full_name}}</h4>
-        <h4>{{book.publication_year}}</h4>
+        <h4>by {{book.author.full_name}}</h4>
+        <h4>published in {{book.publication_year}}</h4>
         <p class="book-description">{{book.description}}</p>
-        <p>{{book.average_rating|floatformat:"2" }}</p>
-        <img src="{{ book.cover.url }}" alt="Book Cover">
     </div>
+</div>
         {% if user.is_authenticated %}
         <div class="abs-det">
             <a class="button" href="{% url 'book_update' pk=book.pk %}">Update book</a>
@@ -19,11 +23,15 @@
         {% endif %}
 
           <h4>Comments:</h4>
+          {% if book.comment_set.all%}
             {% for comment in book.comment_set.all %}
               <div class="comment">
                   <p>From user: {{comment.user.username}}</p>
                   <p>{{ comment.content }}</p>
               </div>
             {% endfor %}
+          {% else %}
+            <p>No comments</p>
+          {% endif %}
 
 {% endblock %}
