@@ -5,6 +5,7 @@
         <h4>{{book.author.full_name}}</h4>
         <h4>{{book.publication_year}}</h4>
         <p class="book-description">{{book.description}}</p>
+        <p>{{book.average_rating|floatformat:"2" }}</p>
         <img src="{{ book.cover.url }}" alt="Book Cover">
     </div>
         {% if user.is_authenticated %}
@@ -12,6 +13,7 @@
             <a class="button" href="{% url 'book_update' pk=book.pk %}">Update book</a>
             <a class="button" href="{% url 'book_delete' pk=book.pk %}">Delete book</a>
             <a class="button" href="{% url 'book_add_comment' pk=book.pk %}">Left comment</a>
+            <a class="button" href="{% url 'book_add_rate' pk=book.pk %}">Left rate</a>
             <a class="button" href="{% url 'books' %}">Back</a>
         </div>
         {% endif %}

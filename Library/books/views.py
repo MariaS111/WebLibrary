@@ -3,8 +3,8 @@ from django.http import HttpResponseRedirect
 from django.shortcuts import render, get_object_or_404
 from django.urls import reverse_lazy
 from django.views.generic import View, DetailView, UpdateView, DeleteView, CreateView
-from .forms import CommentForm
-from .models import Book, Comment
+from .forms import CommentForm, RateForm
+from .models import Book, Comment, BookRating
 
 
 class BookView(View):
@@ -69,6 +69,23 @@ class CommentCreateView(CreateView):
             book = get_object_or_404(Book, pk=pk)
             content = form.cleaned_data['content']
             Comment.objects.create(book=book, user=request.user, content=content)
+            return HttpResponseRedirect(reverse_lazy('book', kwargs={'pk': pk}))
+        else:
+            return form
+
+
+class RateCreateView(CreateView):
+
+    def get(self, request, pk):
+        form = RateForm()
+        return render(request, 'books/book_add_rate.html', {'form': form, 'pk': pk})
+
+    def post(self, request, pk, **kwargs):
+        form = RateForm(request.POST)
+        if form.is_valid():
+            book = get_object_or_404(Book, pk=pk)
+            rating = form.cleaned_data['rating']
+            BookRating.objects.create(book=book, user=request.user, rating=rating)
             return HttpResponseRedirect(reverse_lazy('book', kwargs={'pk': pk}))
         else:
             return form

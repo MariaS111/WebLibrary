@@ -124,7 +124,7 @@ button {
     flex-direction: column;
     row-gap: 20px;
     position: absolute;
-    bottom: 50%;
+    bottom: 40%;
     right: 30px;
 }
 
