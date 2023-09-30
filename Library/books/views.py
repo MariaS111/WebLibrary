@@ -9,7 +9,7 @@ from .models import Book, Comment
 
 class BookView(View):
     template_name = 'books/book_list.html'
-    paginate_by = 5
+    paginate_by = 4
 
     def get(self, request):
         query = request.GET.get('query')

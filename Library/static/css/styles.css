@@ -1,0 +1,77 @@
+body {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+
+header {
+    width: 100%;
+    display: flex;
+    padding: 20px 0;
+    align-items: center;
+    justify-content: space-between;
+}
+
+a {
+    color: #24282C;
+}
+
+a:hover {
+    color: black;
+}
+
+nav a{
+    margin-left: 30px;
+}
+
+header form {
+    padding-right: 30px;
+}
+
+.book-card {
+    text-decoration: none;
+    border: 1px solid #24282C;
+    padding: 15px 20px;
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+}
+
+.book-card h5,
+.book-card h3,
+.book-card p {
+    margin: 10px 0;
+}
+
+.book-card img {
+    width: 150px;
+    height: 200px;
+}
+
+.book-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+}
+
+.book-container {
+     display: grid;
+     padding: 40px 0;
+     grid-template-columns: repeat(2, 1fr);
+     grid-template-rows: repeat(2, 1fr);
+     gap: 4rem;
+}
+
+.book-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 80%;
+}
+
+
+

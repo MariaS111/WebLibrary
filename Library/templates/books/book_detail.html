@@ -1,9 +1,9 @@
 {% extends 'base.html' %}
 {% block content %}
-    <div>
-        <p>{{book}}</p>
-        <p>{{book.author.full_name}}</p>
-        <p>{{book.publication_year}}</p>
+    <div class="book-content">
+        <h3>{{book}}</h3>
+        <h4>{{book.author.full_name}}</h4>
+        <h4>{{book.publication_year}}</h4>
         <p>{{book.description}}</p>
         <img src="{{ book.cover.url }}" alt="Book Cover">
         {% if user.is_authenticated %}
@@ -12,7 +12,7 @@
             <a href="{% url 'book_add_comment' pk=book.pk %}">Left comment</a>
         {% endif %}
 
-          <h3>Comments:</h3>
+          <h4>Comments:</h4>
           <ul>
             {% for comment in book.comment_set.all %}
               <li>{{ comment.content }} --- {{comment.user.username}}</li>

@@ -1,13 +1,17 @@
 {% extends 'base.html' %}
 {% block content %}
+    <div class="book-container">
     {% for i in books %}
-        <div>
-            <a href="{% url 'book' pk=i.pk %}"><p>{{i}}</p> </a>
-            <p>{{i.author.full_name}}</p>
-            <p>{{i.publication_year}}</p>
-            <p>-----------------------</p>
-        </div>
+        <a href="{% url 'book' pk=i.pk %}" class="book-card">
+            <div class="book-info">
+                <h3>{{i}}</h3>
+                <h4>{{i.author.full_name}}</h4>
+                <p>{{ i.description | slice:":30" }}...</p>
+            </div>
+            <img src="{{ i.cover.url }}" alt="Book Cover">
+        </a>
     {% endfor %}
+    </div>
 
     <div class="pagination">
         <span class="step-links">
