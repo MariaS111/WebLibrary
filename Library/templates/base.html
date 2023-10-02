@@ -15,14 +15,8 @@
         <a href="{% url 'books' %}">Books</a>
         <a href="{% url 'authors' %}">Authors</a>
     </nav>
-   <form method="get">
-       <select name="search_by" id="query">
-            <option value="title">Title</option>
-            <option value="author">Author</option>
-        </select>
-        <input type="text" name="query" value="{% if query %}{{ query }}{% else %}{{ '' }}{% endif %}" placeholder="Search by title or author">
-        <button type="submit" class="button">Search</button>
-    </form>
+    {% block search %}
+    {% endblock search %}
 </header>
 {% block content %}
 {% endblock content %}

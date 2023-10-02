@@ -1,5 +1,17 @@
 {% extends 'base.html' %}
+{% block search %}
+   <form method="get">
+       <select name="search_by" id="query">
+            <option value="title">Title</option>
+            <option value="author">Author</option>
+        </select>
+        <input type="text" name="query" value="{% if query %}{{ query }}{% else %}{{ '' }}{% endif %}" placeholder="Search by title or author">
+        <button type="submit" class="button">Search</button>
+    </form>
+{% endblock %}
+
 {% block content %}
+    {% if books %}
     <div class="container">
     {% for book in books %}
         <a href="{% url 'book' pk=book.pk %}" class="card">
@@ -12,7 +24,6 @@
         </a>
     {% endfor %}
     </div>
-
     <div class="pagination">
         <span class="step-links">
             {% if books.has_previous %}
@@ -30,6 +41,11 @@
             {% endif %}
         </span>
     </div>
+
+    {% else %}
+    <h4>No results found</h4>
+    {% endif %}
+
 
     <div class="abs-lst">
     {% if user.is_authenticated %}
