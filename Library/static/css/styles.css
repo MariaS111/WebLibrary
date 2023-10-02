@@ -30,7 +30,7 @@ header form {
     gap: 20px;
 }
 
-.book-card {
+.card {
     text-decoration: none;
     border: 1px solid #f1f1f1;
     border-radius: 10px;
@@ -41,18 +41,18 @@ header form {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }
 
-.book-card h5,
-.book-card h3,
-.book-card p {
+.card h5,
+.card h3,
+.card p {
     margin: 10px 0;
 }
 
-.book-card img {
+.card img {
     width: 150px;
     height: 200px;
 }
 
-.book-info {
+.info {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -60,15 +60,21 @@ header form {
     width: 50%;
 }
 
-.book-container {
+.author-info {
+    width: 100%;
+}
+
+
+
+.container {
      display: grid;
-     padding: 40px 0 20px 0;
+     padding: 40px 0 35px 0;
      grid-template-columns: repeat(2, 1fr);
      grid-template-rows: repeat(2, 1fr);
      gap: 4rem;
 }
 
-.book-content {
+.content {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -76,7 +82,7 @@ header form {
     width: 50%;
 }
 
-.book-im {
+.im {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -84,13 +90,13 @@ header form {
     gap: 20px;
 }
 
-.book-description {
+.description {
     width: 60%;
     word-wrap: break-word;
     text-align: center;
 }
 
-.book-detail-info {
+.detail-info {
     display: flex;
     margin: 40px 0;
     column-gap: 70px;
@@ -115,7 +121,7 @@ header form {
 
 
 .button {
-      background-color: #6fa4e9;
+      background-color: #3b87e0;
       color: #fff;
       padding: 10px 20px;
       border: none;

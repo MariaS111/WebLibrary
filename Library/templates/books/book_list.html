@@ -1,14 +1,14 @@
 {% extends 'base.html' %}
 {% block content %}
-    <div class="book-container">
-    {% for i in books %}
-        <a href="{% url 'book' pk=i.pk %}" class="book-card">
-            <div class="book-info">
-                <h3>{{i}}</h3>
-                <h4>{{i.author.full_name}}</h4>
-                <p>{{ i.description | slice:":25" }}...</p>
+    <div class="container">
+    {% for book in books %}
+        <a href="{% url 'book' pk=book.pk %}" class="card">
+            <div class="info">
+                <h3>{{book}}</h3>
+                <h4>{{book.author.full_name}}</h4>
+                <p>{{ book.description | slice:":25" }}...</p>
             </div>
-            <img src="{{ i.cover.url }}" alt="Book Cover">
+            <img src="{{ book.cover.url }}" alt="Book Cover">
         </a>
     {% endfor %}
     </div>

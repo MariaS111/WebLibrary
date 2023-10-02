@@ -2,6 +2,7 @@
 
 {% block content %}
   <h2>Create Book</h2>
+  <p>If you can't find certain author you can add it yourself <b><a href="{% url 'author_create' %}">here</a></b></p>
   <form method="post">
     {% csrf_token %}
     {{ form.as_p }}
