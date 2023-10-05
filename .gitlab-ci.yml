@@ -5,10 +5,8 @@ stages:
 test:
   stage: test
   script:
-    - pip install pipenv
-    - pipenv install --system --deploy
-    - cd Library
-    - pytest
+    - docker build --rm -t django_app .
+    - docker run -p 8000:8000 django_app
 
 deploy:
   stage: deploy
