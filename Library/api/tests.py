@@ -20,3 +20,14 @@ def test_get_all_books(api_client):
     response = api_client.get(url)
     assert response.status_code == status.HTTP_200_OK
     assert len(response.data) == 1
+
+
+@pytest.mark.django_db
+def test_get_book(api_client):
+    author1 = Author.objects.create(full_name='Test Author', date_of_birth='1990-10-09', biography='Test')
+    book1 = Book.objects.create(title='Test Book', author=author1, publication_year=1)
+    url = reverse('book_api', kwargs={'pk': book1.pk})
+    response = api_client.get(url)
+
+    assert response.status_code == status.HTTP_200_OK
+    assert response.data['title'] == 'Test Book'
