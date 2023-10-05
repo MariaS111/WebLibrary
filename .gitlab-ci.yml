@@ -1,0 +1,14 @@
+stages:
+  - test
+  - deploy
+
+test:
+  stage: test
+  script:
+    - cd Library
+    - pytest
+
+deploy:
+  stage: deploy
+  script:
+    - echo "Deploying..."
