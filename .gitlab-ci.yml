@@ -5,6 +5,8 @@ stages:
 test:
   stage: test
   script:
+    - pip install pipenv
+    - pipenv install --system --deploy
     - cd Library
     - pytest
 
