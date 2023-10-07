@@ -1,7 +1,6 @@
 import pytest
 from django.urls import reverse
 from rest_framework import status
-from .serializers import BookSerializer
 from books.models import Book
 from authors.models import Author
 from rest_framework.test import APIClient

@@ -7,6 +7,11 @@ from .forms import CommentForm, RateForm
 from .models import Book, Comment, BookRating
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
+from django.contrib.auth.decorators import user_passes_test
+
+
+def is_user(user):
+    return user.is_authenticated and not user.is_staff
 
 
 class BookListView(View):
@@ -63,6 +68,7 @@ class BookDeleteView(DeleteView):
     success_url = reverse_lazy('books')
 
 
+@method_decorator(user_passes_test(is_user), name='dispatch')
 class CommentCreateView(CreateView):
     def get(self, request, pk):
         form = CommentForm()
@@ -79,6 +85,7 @@ class CommentCreateView(CreateView):
             return form
 
 
+@method_decorator(user_passes_test(is_user), name='dispatch')
 class RateCreateView(CreateView):
 
     def get(self, request, pk):
