@@ -1,11 +1,11 @@
 from django.urls import path
-from .views import BookView, BookDetailView, BookCreateView, BookDeleteView, BookUpdateView, CommentCreateView, \
+from .views import BookListView, BookDetailView, BookCreateView, BookDeleteView, BookUpdateView, CommentCreateView, \
     RateCreateView
 from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns = [
-    path('', BookView.as_view(), name='books'),
+    path('', BookListView.as_view(), name='books'),
     path('<int:pk>/', BookDetailView.as_view(), name='book'),
     path('create/', BookCreateView.as_view(), name='book_create'),
     path('<int:pk>/delete/', BookDeleteView.as_view(), name='book_delete'),

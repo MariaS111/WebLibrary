@@ -16,8 +16,10 @@
         <div class="abs-det">
             <a class="button" href="{% url 'book_update' pk=book.pk %}">Update book</a>
             <a class="button" href="{% url 'book_delete' pk=book.pk %}">Delete book</a>
+            {% if not user.is_staff %}
             <a class="button" href="{% url 'book_add_comment' pk=book.pk %}">Left comment</a>
             <a class="button" href="{% url 'book_add_rate' pk=book.pk %}">Left rate</a>
+            {% endif %}
             <a class="button" href="{% url 'books' %}">Back</a>
         </div>
         {% else %}

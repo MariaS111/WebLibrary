@@ -1,5 +1,6 @@
+from django.contrib.auth.decorators import login_required
 from django.core.paginator import PageNotAnInteger, EmptyPage, Paginator
-from django.shortcuts import render
+from django.utils.decorators import method_decorator
 from django.views.generic import DetailView, CreateView, ListView
 from .models import Author
 
@@ -30,6 +31,7 @@ class AuthorDetailView(DetailView):
     context_object_name = 'author'
 
 
+@method_decorator(login_required, name='dispatch')
 class AuthorCreateView(CreateView):
     model = Author
     template_name = 'authors/author_create.html'

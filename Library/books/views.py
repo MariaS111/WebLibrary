@@ -5,9 +5,11 @@ from django.urls import reverse_lazy
 from django.views.generic import View, DetailView, UpdateView, DeleteView, CreateView
 from .forms import CommentForm, RateForm
 from .models import Book, Comment, BookRating
+from django.contrib.auth.decorators import login_required
+from django.utils.decorators import method_decorator
 
 
-class BookView(View):
+class BookListView(View):
     template_name = 'books/book_list.html'
     paginate_by = 4
 
@@ -40,18 +42,21 @@ class BookDetailView(DetailView):
     context_object_name = 'book'
 
 
+@method_decorator(login_required, name='dispatch')
 class BookCreateView(CreateView):
     model = Book
     template_name = 'books/book_create.html'
     fields = ['title', 'author', 'publication_year', 'description', 'cover']
 
 
+@method_decorator(login_required, name='dispatch')
 class BookUpdateView(UpdateView):
     model = Book
     template_name = 'books/book_update.html'
     fields = ['title', 'author', 'publication_year', 'description', 'cover']
 
 
+@method_decorator(login_required, name='dispatch')
 class BookDeleteView(DeleteView):
     model = Book
     template_name = 'books/book_delete.html'
