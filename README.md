@@ -42,6 +42,39 @@ After running these commands, you can access the application at http://127.0.0.1
 
 ## Functionality
 
+- **User Registration/Login/Logout**
+  - Users can create accounts, log in, and log out of the system.
+
+- **View a List of Books**
+  - Users can see a list of all books of the system.
+
+- **View Detailed Book Information**
+  - Users can view detailed information about a specific book.
+
+- **Search for Books by Title or Author**
+  - Users can search for books using titles or author names.
+
+- **Ability to Add, Edit, and Delete Books**
+  - Admins or authorized users can add new books, edit existing ones, and remove books from the system.
+
+- **Leave Comments on Books (For Authenticated Users But not for Admins)**
+  - Authenticated users can leave comments on books.
+
+- **View a List of Authors**
+  - Users can see a list of all authors of the system.
+
+- **View Detailed Author Information**
+  - Users can view detailed information about a specific author.
+    
+- **Ability to Add Authors**
+  - Admins or authorized users can add new authors to the system.
+    
+- **Pagination for Books and Authors Lists**
+  - Implementing pagination for books and authors lists, allowing for easier navigation and a better user experience.
+
+- **Leave Rating for Books (For Authenticated Users But not for Admins)**
+  - Allowing users to rate books, providing an extra layer of interaction and feedback for the system.
+
 ## Testing
 
 Automated tests can be run using this command in the root directory:
